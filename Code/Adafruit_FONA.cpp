@@ -3307,7 +3307,7 @@ uint16_t Adafruit_FONA::readRaw(uint16_t b) {
 
 uint8_t Adafruit_FONA::readline(uint16_t timeout, boolean multiline) {
   uint16_t replyidx = 0;
-  //DEBUG_PRINT(F("\t---xxRL> ")); DEBUG_PRINTLN(timeout);   //comment BDW
+  DEBUG_PRINTLN(F("\t---xxRL> ")); //DEBUG_PRINTLN(timeout);   //comment BDW
   while (timeout--) {
     if (replyidx >= 254) {
       //DEBUG_PRINTLN(F("SPACE"));
@@ -3327,7 +3327,7 @@ uint8_t Adafruit_FONA::readline(uint16_t timeout, boolean multiline) {
         }
       }
       replybuffer[replyidx] = c;
-      //DEBUG_PRINT(c, HEX); DEBUG_PRINT("#"); DEBUG_PRINTLN(c);
+      DEBUG_PRINTLN(F("\t---xxRL> ")); DEBUG_PRINT(c, HEX); DEBUG_PRINT("#"); DEBUG_PRINTLN(c);
       replyidx++;
     }
 
