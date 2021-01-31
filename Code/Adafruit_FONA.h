@@ -182,6 +182,7 @@ class Adafruit_FONA : public FONAStreamType {
   boolean wirelessConnStatus(void);
 
   // GPS handling
+  boolean enableGPSAntenna(boolean onoff);
   boolean enableGPS(boolean onoff);
   int8_t GPSstatus(void);
   uint8_t getGPS(uint8_t arg, char *buffer, uint8_t maxbuff);

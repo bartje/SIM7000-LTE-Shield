@@ -994,6 +994,23 @@ boolean Adafruit_FONA::enableRTC(uint8_t i) {
 
 /********* GPS **********************************************************/
 
+// LilyGoT only SIM7000
+boolean Adafruit_FONA::enableGPSAntenna(boolean onoff) {
+
+  // First check if the antenne is already on or off
+  
+  if (_type == SIM7000) {
+    
+    getReply(F("AT+SGPIO=?"));
+    char *p = prog_char_strstr(replybuffer, (prog_char*)F("+SGPIO: "));
+    return true;
+  }
+  return false;
+}
+
+
+//
+
 
 boolean Adafruit_FONA::enableGPS(boolean onoff) {
   uint16_t state;
