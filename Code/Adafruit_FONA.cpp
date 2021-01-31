@@ -3307,7 +3307,7 @@ uint16_t Adafruit_FONA::readRaw(uint16_t b) {
 
 uint8_t Adafruit_FONA::readline(uint16_t timeout, boolean multiline) {
   uint16_t replyidx = 0;
-  DEBUG_PRINT(F("\t---xxRL> ")); DEBUG_PRINTLN(timeout);   //comment BDW
+  //DEBUG_PRINT(F("\t---xxRL> ")); DEBUG_PRINTLN(timeout);   //comment BDW
   while (timeout--) {
     if (replyidx >= 254) {
       //DEBUG_PRINTLN(F("SPACE"));
@@ -3343,7 +3343,7 @@ uint8_t Adafruit_FONA::readline(uint16_t timeout, boolean multiline) {
 
 uint8_t Adafruit_FONA::getReply(const char *send, uint16_t timeout) {
   flushInput();
-  DEBUG_PRINT(F("\t---xxGR> ")); DEBUG_PRINTLN("get Reply");   //comment BDW
+  DEBUG_PRINT(F("\t---xxGR1> ")); DEBUG_PRINTLN("get Reply");   //comment BDW
 
   DEBUG_PRINT(F("\t---> ")); DEBUG_PRINTLN(send);
 
@@ -3360,7 +3360,7 @@ uint8_t Adafruit_FONA::getReply(const char *send, uint16_t timeout) {
 uint8_t Adafruit_FONA::getReply(FONAFlashStringPtr send, uint16_t timeout) {
   flushInput();
 
-
+  DEBUG_PRINT(F("\t---xxGR2> ")); DEBUG_PRINTLN("get Reply");   //comment BDW
   DEBUG_PRINT(F("\t---> ")); DEBUG_PRINTLN(send);
 
 
