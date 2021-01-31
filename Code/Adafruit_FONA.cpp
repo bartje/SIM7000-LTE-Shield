@@ -1000,9 +1000,13 @@ boolean Adafruit_FONA::enableGPSAntenna(boolean onoff) {
   // First check if the antenne is already on or off
   
   if (_type == SIM7000) {
+    if (onoff) {
+      getReply(F("+SGPIO=0,4,1,1"));    //0=output , GPIO nr 4 , 1 = Output , 1 High
+    } else {
+      getReply(F("+SGPIO=0,4,1,0"));    //0=output , GPIO nr 4 , 1 = Output , 1 Low
+    }
     
-    getReply(F("AT+SGPIO=?"));
-    char *p = prog_char_strstr(replybuffer, (prog_char*)F("+SGPIO: "));
+    //char *p = prog_char_strstr(replybuffer, (prog_char*)F("+SGPIO: "));
     return true;
   }
   return false;
