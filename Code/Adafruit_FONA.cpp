@@ -3343,13 +3343,13 @@ uint8_t Adafruit_FONA::readline(uint16_t timeout, boolean multiline) {
 
 uint8_t Adafruit_FONA::getReply(const char *send, uint16_t timeout) {
   flushInput();
-
+  DEBUG_PRINT(F("\t---xxGR> ")); DEBUG_PRINTLN("get Reply");   //comment BDW
 
   DEBUG_PRINT(F("\t---> ")); DEBUG_PRINTLN(send);
 
 
   mySerial->println(send);
-  DEBUG_PRINT(F("\t---xxGR> ")); DEBUG_PRINTLN(timeout);   //comment BDW
+  //DEBUG_PRINT(F("\t---xxGR> ")); DEBUG_PRINTLN(timeout);   //comment BDW
   uint8_t l = readline(timeout);
 
   DEBUG_PRINT (F("\t<--- ")); DEBUG_PRINTLN(replybuffer);
