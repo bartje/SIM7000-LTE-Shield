@@ -3366,7 +3366,7 @@ uint8_t Adafruit_FONA::getReply(FONAFlashStringPtr send, uint16_t timeout) {
 
 
   mySerial->println(send);
-  DEBUG_PRINT(F("\t---xxGR2> ")); DEBUG_PRINTLN(timeout);   //comment BDW
+  //DEBUG_PRINT(F("\t---xxGR2> ")); DEBUG_PRINTLN(timeout);   //comment BDW
   uint8_t l = readline(timeout);
 
   DEBUG_PRINT (F("\t<--- ")); DEBUG_PRINTLN(replybuffer);
