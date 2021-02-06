@@ -1000,6 +1000,10 @@ boolean Adafruit_FONA::enableGPSAntenna(boolean onoff) {
   // First check if the antenne is already on or off
   
   if (_type == SIM7000) {
+    
+    getReply(F("AT+SGPIO=?"));
+    //getReply(F("AT+SGPIO=0,4,1,1"));
+    
     if (onoff) {
       sendCheckReply(F("AT+SGPIO=0,4,1,1"), ok_reply);
       //getReply(F("+SGPIO=0,4,1,1"));    //0=output , GPIO nr 4 , 1 = Output , 1 High
@@ -3328,7 +3332,7 @@ uint8_t Adafruit_FONA::readline(uint16_t timeout, boolean multiline) {
         }
       }
       replybuffer[replyidx] = c;
-      //DEBUG_PRINTLN(F("\t---xxRL> ")); DEBUG_PRINT(c, HEX); DEBUG_PRINT("#"); DEBUG_PRINTLN(c);
+      //DEBUG_PRINTLN(F("\t<RL--- ")); DEBUG_PRINT(c, HEX); DEBUG_PRINT("#"); DEBUG_PRINTLN(c);
       replyidx++;
     }
 
@@ -3339,6 +3343,7 @@ uint8_t Adafruit_FONA::readline(uint16_t timeout, boolean multiline) {
     delay(1);
   }
   replybuffer[replyidx] = 0;  // null term
+  //DEBUG_PRINT(F("\t<RL--- ")); DEBUG_PRINTLN(replybuffer);
   return replyidx;
 }
 
